@@ -1,0 +1,53 @@
+[project]
+name = "tggl"
+requires-python = ">=3.11"
+dynamic = ["version"]
+dependencies = [
+#    "aiogram==3.4.*",
+#    "aiohttp==3.9.*"
+]
+
+[project.optional-dependencies]
+test = [
+    "ruff",
+]
+
+[project.scripts]
+start-bot = "tggl.main:main"
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+exclude = [".venv"]
+select = [
+    "ANN001",
+    "ANN201",
+    "ANN202",
+    "ANN204",
+    "C",
+    "E",
+    "ERA",
+    "F",
+    "W",
+    "N",
+    "B",
+    "UP",
+    "PD",
+    "C90",
+    "FBT",
+    "COM",
+    "PIE",
+    "PLC",
+    "PLE",
+    "PLR",
+    "PLW",
+    "RSE102",
+    "RET",
+    "NPY",
+    "RUF",
+    "SIM",
+]
