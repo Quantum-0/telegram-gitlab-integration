@@ -1,10 +1,20 @@
+[build-system]
+requires = ['hatchling']
+build-backend = 'hatchling.build'
+
+[tool.hatch.version]
+path = "tggl/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["tggl"]
+
 [project]
 name = "tggl"
 requires-python = ">=3.11"
 dynamic = ["version"]
 dependencies = [
-#    "aiogram==3.4.*",
-#    "aiohttp==3.9.*"
+    "aiogram==3.4.*",
+    "aiohttp==3.9.*"
 ]
 
 [project.optional-dependencies]
