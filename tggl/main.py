@@ -44,7 +44,7 @@ async def check_pytest(mr_id: int, msg: Message):
             head_pipeline = json_resp.get('head_pipeline')
             if not head_pipeline:
                 logger.warning('No head pipeline for MR #%d', mr_id)
-                msg.react([ReactionTypeEmoji(emoji=status_react_dict['NO_PIPELINE'])])
+                await msg.react([ReactionTypeEmoji(emoji=status_react_dict['NO_PIPELINE'])])
                 return
             pid = int(json_resp['head_pipeline']['id'])
             logger.info('Head pipeline id for MR #%d is %d', mr_id, pid)
