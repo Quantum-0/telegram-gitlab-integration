@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telegram-gitlab-integration-deployment
+  labels:
+    app: telegram-gitlab-integration
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: telegram-gitlab-integration
+  template:
+    metadata:
+      labels:
+        app: telegram-gitlab-integration
+    spec:
+      containers:
+      - name: telegram-gitlab-integration-deployment
+        image: quantum075/tggl:0.0.1
+        resources:
+          requests:
+            cpu: "100m"
+        envFrom:
+          - secretRef:
+              name: tggl-secret
+        imagePullPolicy: IfNotPresent
